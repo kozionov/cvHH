@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <link rel="stylesheet" href="/css/style.css"/>
+    <script type="text/javascript" th:src="@{/js/boards.js}"></script>
+</head>
+<body>
+
+<th:block th:fragment="top-navigation-panel">
+    <div id="not-bar" class="container">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-collapse collapse" style="margin-right: 10px">
+                <ul id="nav-bar-list" class="nav navbar-nav">
+                    <li><a href="/main">Главная</a></li>
+                    <li><a href="/settings">Настройки</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="javascript:;" onclick="document.getElementById('logout').submit();" class="glyphicon glyphicon-log-out">&nbsp;Выход</a>
+                        <form action="/logout" id="logout" method="post">
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                        </form>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <br/>
+    </div>
+</th:block>
+
+<th:block th:fragment="header">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous"/>
+    <script th:src="@{/js/jquery-3.2.0.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script type="text/javascript" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.min.js}"></script>
+</th:block>
+
+</body>
+</html>

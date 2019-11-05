@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Авторизация</title>
+    <div th:replace="fragments/htmlFragments::header"></div>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div style="text-align: center">
+        <h1>Приветствие</h1>
+        <div>Информация для студента</div>
+        <div>
+            <a th:href="@{${link}}" class="btn btn-info" role="button">Авторизовать приложение</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

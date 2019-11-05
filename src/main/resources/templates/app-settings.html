@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div th:replace="fragments/htmlFragments::header"></div>
+    <title>Настройки приложения</title>
+</head>
+<body>
+<!--Навигационная панель-->
+<div th:replace="fragments/htmlFragments::top-navigation-panel"></div>
+<div style="margin-top: 3%">
+    <div class="container-fluid">
+        <h3 style="text-align: center">Управление настройками приложения</h3>
+        <div class="row">
+            <div class="col-md-2 col-lg-offset-0">
+                <form method="post" action="/settings">
+                    <p>Количество вакансий для отклика:</p>
+                    <select name="course">
+                        <option th:each="course : ${courses}"
+                                th:value="${course.getName()}"
+                                th:utext="${course.getName()}" selected/>
+                    </select>
+                    <p><input type="text" name="quantity" placeholder="Enter quantity"/></p>
+                    <p><input type="submit" value="Сохранить"></p>
+                </form>
+            </div>
+            <div class="col-md-2">
+                <form method="post" action="/settings/course/add">
+                    <p>Добавить направление:</p>
+                    <p><input type="text" name="course" placeholder="Course name"/></p>
+                    <p><input type="submit" value="Добавить"></p>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
